@@ -1,0 +1,44 @@
+[1.307s] Invoking command in '/home/mate/ros2_ws/build/ros2_course': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --uninstall --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build
+[1.877s] running develop
+[1.878s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.878s]   warnings.warn(
+[2.271s] Removing /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2-course.egg-link (link to .)
+[2.324s] Invoked command in '/home/mate/ros2_ws/build/ros2_course' returned '0': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --uninstall --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build
+[2.326s] Invoking command in '/home/mate/ros2_ws/src/ros2_course': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ros2_course build --build-base /home/mate/ros2_ws/build/ros2_course/build install --record /home/mate/ros2_ws/build/ros2_course/install.log --single-version-externally-managed install_data --force
+[2.865s] running egg_info
+[2.866s] writing ../../build/ros2_course/ros2_course.egg-info/PKG-INFO
+[2.867s] writing dependency_links to ../../build/ros2_course/ros2_course.egg-info/dependency_links.txt
+[2.867s] writing entry points to ../../build/ros2_course/ros2_course.egg-info/entry_points.txt
+[2.868s] writing requirements to ../../build/ros2_course/ros2_course.egg-info/requires.txt
+[2.868s] writing top-level names to ../../build/ros2_course/ros2_course.egg-info/top_level.txt
+[2.871s] reading manifest file '../../build/ros2_course/ros2_course.egg-info/SOURCES.txt'
+[2.873s] writing manifest file '../../build/ros2_course/ros2_course.egg-info/SOURCES.txt'
+[2.874s] running build
+[2.874s] running build_py
+[2.874s] creating /home/mate/ros2_ws/build/ros2_course/build
+[2.874s] creating /home/mate/ros2_ws/build/ros2_course/build/lib
+[2.875s] creating /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+[2.875s] copying ros2_course/dummy_marker.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+[2.875s] copying ros2_course/psm_grasp.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+[2.875s] copying ros2_course/hello.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+[2.875s] copying ros2_course/__init__.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+[2.875s] running install
+[2.876s] running install_lib
+[2.877s] creating /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+[2.878s] copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/dummy_marker.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+[2.878s] copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/psm_grasp.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+[2.878s] copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/hello.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+[2.878s] copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/__init__.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+[2.880s] byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/dummy_marker.py to dummy_marker.cpython-310.pyc
+[2.881s] byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/psm_grasp.py to psm_grasp.cpython-310.pyc
+[2.883s] byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/hello.py to hello.cpython-310.pyc
+[2.883s] byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/__init__.py to __init__.cpython-310.pyc
+[2.883s] running install_data
+[2.884s] copying resource/ros2_course -> /home/mate/ros2_ws/install/ros2_course/share/ament_index/resource_index/packages
+[2.884s] copying package.xml -> /home/mate/ros2_ws/install/ros2_course/share/ros2_course
+[2.885s] running install_egg_info
+[2.893s] Copying ../../build/ros2_course/ros2_course.egg-info to /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course-0.0.0-py3.10.egg-info
+[2.893s] running install_scripts
+[2.941s] Installing hello = ros2_course.hello:mainpsm_grasp = ros2_course.psm_grasp:maindummy_marker script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.942s] writing list of installed files to '/home/mate/ros2_ws/build/ros2_course/install.log'
+[2.993s] Invoked command in '/home/mate/ros2_ws/src/ros2_course' returned '0': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ros2_course build --build-base /home/mate/ros2_ws/build/ros2_course/build install --record /home/mate/ros2_ws/build/ros2_course/install.log --single-version-externally-managed install_data --force

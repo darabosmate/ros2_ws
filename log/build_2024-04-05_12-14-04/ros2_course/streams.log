@@ -1,0 +1,19 @@
+[1.360s] Invoking command in '/home/mate/ros2_ws/build/ros2_course': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data
+[1.986s] running develop
+[1.992s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.992s]   warnings.warn(
+[2.373s] running egg_info
+[2.373s] writing ros2_course.egg-info/PKG-INFO
+[2.374s] writing dependency_links to ros2_course.egg-info/dependency_links.txt
+[2.374s] writing entry points to ros2_course.egg-info/entry_points.txt
+[2.374s] writing requirements to ros2_course.egg-info/requires.txt
+[2.375s] writing top-level names to ros2_course.egg-info/top_level.txt
+[2.378s] reading manifest file 'ros2_course.egg-info/SOURCES.txt'
+[2.380s] writing manifest file 'ros2_course.egg-info/SOURCES.txt'
+[2.383s] running build_ext
+[2.384s] Creating /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2-course.egg-link (link to .)
+[2.385s] Installing hello = ros2_course.hello:mainpsm_grasp = ros2_course.psm_grasp:maindummy_marker script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.386s] 
+[2.386s] Installed /home/mate/ros2_ws/build/ros2_course
+[2.386s] running symlink_data
+[2.447s] Invoked command in '/home/mate/ros2_ws/build/ros2_course' returned '0': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data

@@ -1,0 +1,38 @@
+running develop
+Removing /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2-course.egg-link (link to .)
+running egg_info
+writing ../../build/ros2_course/ros2_course.egg-info/PKG-INFO
+writing dependency_links to ../../build/ros2_course/ros2_course.egg-info/dependency_links.txt
+writing entry points to ../../build/ros2_course/ros2_course.egg-info/entry_points.txt
+writing requirements to ../../build/ros2_course/ros2_course.egg-info/requires.txt
+writing top-level names to ../../build/ros2_course/ros2_course.egg-info/top_level.txt
+reading manifest file '../../build/ros2_course/ros2_course.egg-info/SOURCES.txt'
+writing manifest file '../../build/ros2_course/ros2_course.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/mate/ros2_ws/build/ros2_course/build
+creating /home/mate/ros2_ws/build/ros2_course/build/lib
+creating /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+copying ros2_course/dummy_marker.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+copying ros2_course/psm_grasp.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+copying ros2_course/hello.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+copying ros2_course/__init__.py -> /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course
+running install
+running install_lib
+creating /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/dummy_marker.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/psm_grasp.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/hello.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+copying /home/mate/ros2_ws/build/ros2_course/build/lib/ros2_course/__init__.py -> /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course
+byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/dummy_marker.py to dummy_marker.cpython-310.pyc
+byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/psm_grasp.py to psm_grasp.cpython-310.pyc
+byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/hello.py to hello.cpython-310.pyc
+byte-compiling /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/ros2_course -> /home/mate/ros2_ws/install/ros2_course/share/ament_index/resource_index/packages
+copying package.xml -> /home/mate/ros2_ws/install/ros2_course/share/ros2_course
+running install_egg_info
+Copying ../../build/ros2_course/ros2_course.egg-info to /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2_course-0.0.0-py3.10.egg-info
+running install_scripts
+Installing hello = ros2_course.hello:mainpsm_grasp = ros2_course.psm_grasp:maindummy_marker script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+writing list of installed files to '/home/mate/ros2_ws/build/ros2_course/install.log'

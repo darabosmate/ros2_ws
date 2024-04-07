@@ -1,0 +1,5 @@
+[console_scripts]
+dummy_marker = ros2_course.dummy_marker:main
+hello = ros2_course.hello:main
+psm_grasp = ros2_course.psm_grasp:main
+
