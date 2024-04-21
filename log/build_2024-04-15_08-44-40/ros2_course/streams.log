@@ -1,0 +1,22 @@
+[1.363s] Invoking command in '/home/mate/ros2_ws/build/ros2_course': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data
+[1.953s] running develop
+[1.958s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.958s]   warnings.warn(
+[2.356s] running egg_info
+[2.356s] writing ros2_course.egg-info/PKG-INFO
+[2.362s] writing dependency_links to ros2_course.egg-info/dependency_links.txt
+[2.363s] writing entry points to ros2_course.egg-info/entry_points.txt
+[2.363s] writing requirements to ros2_course.egg-info/requires.txt
+[2.363s] writing top-level names to ros2_course.egg-info/top_level.txt
+[2.366s] reading manifest file 'ros2_course.egg-info/SOURCES.txt'
+[2.368s] writing manifest file 'ros2_course.egg-info/SOURCES.txt'
+[2.371s] running build_ext
+[2.372s] Creating /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2-course.egg-link (link to .)
+[2.373s] Installing dummy_marker script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.374s] Installing hello script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.374s] Installing psm_grasp script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.374s] Installing turtlesim_controller script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[2.375s] 
+[2.375s] Installed /home/mate/ros2_ws/build/ros2_course
+[2.375s] running symlink_data
+[2.436s] Invoked command in '/home/mate/ros2_ws/build/ros2_course' returned '0': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data

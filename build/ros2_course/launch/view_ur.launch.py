@@ -1,0 +1,1 @@
+/home/mate/ros2_ws/src/ros2_course/launch/view_ur.launch.py

@@ -1,0 +1,22 @@
+[0.912s] Invoking command in '/home/mate/ros2_ws/build/ros2_course': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data
+[1.300s] running develop
+[1.305s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[1.305s]   warnings.warn(
+[1.548s] running egg_info
+[1.548s] writing ros2_course.egg-info/PKG-INFO
+[1.548s] writing dependency_links to ros2_course.egg-info/dependency_links.txt
+[1.549s] writing entry points to ros2_course.egg-info/entry_points.txt
+[1.549s] writing requirements to ros2_course.egg-info/requires.txt
+[1.549s] writing top-level names to ros2_course.egg-info/top_level.txt
+[1.553s] reading manifest file 'ros2_course.egg-info/SOURCES.txt'
+[1.554s] writing manifest file 'ros2_course.egg-info/SOURCES.txt'
+[1.556s] running build_ext
+[1.557s] Creating /home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages/ros2-course.egg-link (link to .)
+[1.558s] Installing dummy_marker script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[1.559s] Installing hello script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[1.559s] Installing psm_grasp script to /home/mate/ros2_ws/install/ros2_course/lib/ros2_course
+[1.559s] 
+[1.559s] Installed /home/mate/ros2_ws/build/ros2_course
+[1.560s] running symlink_data
+[1.560s] symbolically linking /home/mate/ros2_ws/build/ros2_course/launch/turtlesim_mimic_launch.py -> /home/mate/ros2_ws/install/ros2_course/share/ros2_course
+[1.602s] Invoked command in '/home/mate/ros2_ws/build/ros2_course' returned '0': PYTHONPATH=/home/mate/ros2_ws/build/ros2_course/prefix_override:/home/mate/ros2_ws/install/ros2_course/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/mate/ros2_ws/build/ros2_course/build --no-deps symlink_data

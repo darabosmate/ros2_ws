@@ -2,4 +2,7 @@
 dummy_marker = ros2_course.dummy_marker:main
 hello = ros2_course.hello:main
 psm_grasp = ros2_course.psm_grasp:main
+topic_latcher = ros2_course.topic_latcher:main
+turtlesim_controller = ros2_course.turtlesim_controller:main
+ur_controller = ros2_course.ur_controller:main
 

@@ -36,11 +36,12 @@ class PSM(Node):
             self.cb_measured_jaw,
             10)
 
-        # self.marker = None
-        # self.subscription = self.create_subscription(
-        #     Marker, 'dummy_target_marker'
-        #     self.marker,
-        #     10)
+        self.marker = None
+        self.subscription = self.create_subscription(
+            Marker,
+            '/dummy_target_marker',
+            self.cb_marker,
+            10)
 
     # Callback for pose
     def cb_measured_cp(self, msg):
@@ -50,78 +51,104 @@ class PSM(Node):
     # Callback for jaw
     def cb_measured_jaw(self, msg):
         self.measured_jaw = msg
-        print(self.measured_jaw)
+        #print(self.measured_jaw)
 
     def cb_marker(self, msg):
         self.marker = msg
 
-    # def grasp_marker(self, v, omega,  v, dt):
-    #     loop_rate = self.create_rate(100, self.get_clock())
+    def move_jaw_to(self, target, omega, dt):
+        # Wait for position to be received
+        loop_rate = self.create_rate(100, self.get_clock())  # Hz
+        while self.measured_jaw is None and rclpy.ok():
+            self.get_logger().info('Waiting for jaw...')
+            rclpy.spin_once(self)
 
-    #     while(self.marker is None and rclpy.ok()):
+
+        # Copy msg
+        msg = self.measured_jaw
+
+        # Create linear trajectory
+        distance = abs(target - self.measured_jaw.position[0])
+        T = distance / omega
+        N = int(math.floor(T / dt))
+        tr_jaw = np.linspace(self.measured_jaw.position[0], target, N)
+
+        # Publish trajectory
+        loop_rate = self.create_rate(1.0 / dt, self.get_clock())  # Hz
+        print("Starting jaw trajectory...")
+        for i in range(N):
+            if not rclpy.ok():
+                break
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.position = [tr_jaw[i]]
+            self.servo_jaw_pub.publish(msg)
+            rclpy.spin_once(self)
+        print("Jaw trajectory finsihed.")
+
+
+
+    def grasp_marker(self, v, omega, dt):
+        # Wait for marker position to be received
+        loop_rate = self.create_rate(100, self.get_clock())  # Hz
+        while self.marker is None and rclpy.ok():
+            self.get_logger().info('Waiting for marker...')
+            rclpy.spin_once(self)
+        #print(self.marker)
+
+        # Open jaws
+        self.move_jaw_to(0.8, omega, dt)
+
+        # Nav to marker
+        target = [self.marker.pose.position.x,
+                  self.marker.pose.position.y,
+                  self.marker.pose.position.z + 0.008]
+        self.move_tcp_to(target, v, dt)
+
+        # Close jaws
+        self.move_jaw_to(0.0, omega, dt)
+
 
 
     def move_tcp_to(self, target, v, dt):
-        # Tervezett trajektória létrehozása
-        num_steps = int(np.linalg.norm(target - self.current_position) / (v * dt))  # Lépésszám
-        traj_x = np.linspace(self.current_position[0], target[0], num_steps)
-        traj_y = np.linspace(self.current_position[1], target[1], num_steps)
-        traj_z = np.linspace(self.current_position[2], target[2], num_steps)
-        
-        # Plotolás
-        plt.plot(traj_x, label='X')
-        plt.plot(traj_y, label='Y')
-        plt.plot(traj_z, label='Z')
-        plt.xlabel('Idő')
-        plt.ylabel('Pozíció')
-        plt.title('TCP mozgása lineáris trajektórián')
-        plt.legend()
-        plt.grid(True)
-        plt.show()
-        
-        # Mozgatás és üzenet küldése
-        loop_rate = self.create_rate(100)  # Hz
-        for i in range(num_steps):
-            # Mozgatás
-            self.current_position = np.array([traj_x[i], traj_y[i], traj_z[i]])
-            # Üzenet létrehozása és publikálása
-            msg = PoseStamped()
+           # Wait for position to be received
+        loop_rate = self.create_rate(100, self.get_clock())  # Hz
+        while self.measured_cp is None and rclpy.ok():
+            self.get_logger().info('Waiting for pose...')
+            rclpy.spin_once(self)
+
+
+        # Copy msg
+        msg = self.measured_cp
+
+        measured_cp_np = np.array([self.measured_cp.pose.position.x,
+                                   self.measured_cp.pose.position.y,
+                                   self.measured_cp.pose.position.z])
+        target_np = np.array(target)
+
+        distance = np.linalg.norm(target_np - measured_cp_np)
+
+        T = distance / v
+        N = int(math.floor(T/dt))
+        tr_x = np.linspace(self.measured_cp.pose.position.x, target[0], N)
+        tr_y = np.linspace(self.measured_cp.pose.position.y, target[1], N)
+        tr_z = np.linspace(self.measured_cp.pose.position.z, target[2], N)
+
+
+        loop_rate = self.create_rate(1.0 / dt, self.get_clock())  # Hz
+        print("Starting trajectory...")
+        # publish trajectory
+        for i in range(N):
+            #Publish msg
+            if not rclpy.ok():
+                break
             msg.header.stamp = self.get_clock().now().to_msg()
-            msg.pose.position.x = self.current_position[0]
-            msg.pose.position.y = self.current_position[1]
-            msg.pose.position.z = self.current_position[2]
+            msg.pose.position.x = tr_x[i]
+            msg.pose.position.y = tr_y[i]
+            msg.pose.position.z = tr_z[i]
             self.servo_cp_pub.publish(msg)
-            # Várakozás a következő lépésre
-            loop_rate.sleep()
-        
-        self.get_logger().info('TCP moved to target position.')
+            rclpy.spin_once(self)
 
-    # def move_tcp_to(self, target, v, dt):
-    #        # Wait for position to be received
-    #     loop_rate = self.create_rate(100, self.get_clock())  # Hz
-    #     while self.measured_jaw is None and rclpy.ok():
-    #         self.get_logger().info('Waiting for pose...')
-    #         rclpy.spin_once(self)
-
-
-    #     # Copy msg
-    #     msg = self.measured_jaw
-
-    #     distance = abs(target - self.measured_jaw.position[0])
-    #     T = distance / omega
-    #     N = int(math.floor(T/dt))
-    #     tr_jaw = np.linspace(self.measured_jaw.position[0], target, N)
-
-    #     # publish trajectory
-    #     for i in tr_jaw:
-
-
-        # Publish msg
-        #msg.header.stamp = self.get_clock().now().to_msg()
-        #msg.pose.position.x = target[0]
-        #msg.pose.position.y = target[1]
-        #msg.pose.position.z = target[2]
-        #self.servo_cp_pub.publish(msg)
+        print("Trajectory finished.")
 
 def main(args=None):
     rclpy.init(args=args)
@@ -131,8 +158,18 @@ def main(args=None):
     psm.move_tcp_to([0.0, 0.0, -0.12], 0.01, 0.01)
     #psm.move_jaw_to(0.0, 0.1, 0.01)
 
-    psm.move_tcp_to([0.0, 0.05, -0.12], 0.01, 0.01)
+    #psm.move_tcp_to([0.0, 0.0, 0.0], 0.01, 0.01)
+    # psm.move_tcp_to([0.05, 0.05, -0.12], 0.05, 0.01)
+    # psm.move_tcp_to([0.05, 0.05, 0.05], 0.05, 0.01)
+    # psm.move_tcp_to([0.1, 0.1, 0.1], 0.05, 0.01)
     #psm.move_jaw_to()
+    psm.grasp_marker(0.03, 0.01, 0.01)
+
+    psm.move_tcp_to([0.1, 0.1, 0.1], 0.03, 0.01)
+
+    # for i in range(10):
+    #     psm.move_jaw_to(1, 0.1, 0.01)
+    #     psm.move_jaw_to(0.0, 0.1, 0.01)
 
 
 
