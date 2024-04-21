@@ -46,7 +46,7 @@ class PSM(Node):
     # Callback for pose
     def cb_measured_cp(self, msg):
         self.measured_cp = msg
-        #print(self.measured_cp)
+        print(self.measured_cp)
 
     # Callback for jaw
     def cb_measured_jaw(self, msg):
@@ -163,9 +163,9 @@ def main(args=None):
     # psm.move_tcp_to([0.05, 0.05, 0.05], 0.05, 0.01)
     # psm.move_tcp_to([0.1, 0.1, 0.1], 0.05, 0.01)
     #psm.move_jaw_to()
-    psm.grasp_marker(0.03, 0.01, 0.01)
+    psm.grasp_marker(0.01, 0.02, 0.01)
 
-    psm.move_tcp_to([0.1, 0.1, 0.1], 0.03, 0.01)
+    psm.move_tcp_to([-0.242179, 0.775629, -0.12], 0.01, 0.01)
 
     # for i in range(10):
     #     psm.move_jaw_to(1, 0.1, 0.01)

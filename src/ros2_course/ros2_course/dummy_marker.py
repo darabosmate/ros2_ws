@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from visualization_msgs.msg import Marker
 from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import JointState
 import math
 
 
@@ -17,6 +18,14 @@ class DummyMarker(Node):
             '/PSM1/measured_cp',
             self.cb_measured_cp,
             10)
+        
+        self.measured_jaw = None
+        self.subscription = self.create_subscription(
+            JointState,
+            '/PSM1/jaw/measured_js',
+            self.cb_measured_jaw,
+            10)
+ 
         timer_period = 0.01  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
@@ -26,6 +35,10 @@ class DummyMarker(Node):
     def cb_measured_cp(self, msg):
         self.measured_cp = msg
         #print(self.measured_cp)
+        
+    def cb_measured_jaw(self, msg):
+        self.measured_jaw = msg
+        #print(self.measured_jaw)
 
     def timer_callback(self):
         marker = Marker()
@@ -52,6 +65,10 @@ class DummyMarker(Node):
 
         self.publisher_.publish(marker)
         #self.i += 1
+    def jaw_closed(self):
+        if self.measured_jaw is None:
+            return False
+        return self.measured_jaw.position[0] < 0.01
 
     def is_grabbed(self):
         if self.measured_cp is None:
@@ -62,7 +79,7 @@ class DummyMarker(Node):
                              (self.position[2] - self.measured_cp.pose.position.z)**2)
 
         threshold = 0.01  # Define your own threshold here
-        return distance < threshold
+        return distance < threshold and self.jaw_closed()
 
 def main(args=None):
     rclpy.init(args=args)
@@ -74,7 +91,8 @@ def main(args=None):
             if marker_publisher.is_grabbed():
                 marker_publisher.position = [marker_publisher.measured_cp.pose.position.x,
                                             marker_publisher.measured_cp.pose.position.y,
-                                            marker_publisher.measured_cp.pose.position.z]
+                                            marker_publisher.measured_cp.pose.position.z-0.008]
+                print(marker_publisher.position)
         rclpy.spin_once(marker_publisher)
 
     # Destroy the node explicitly
