@@ -1,3 +1,4 @@
+# how to run
 1. dvrk console:  
 ```ros2 run dvrk_robot dvrk_console_json -j ~/dvrk2_ws/install/sawIntuitiveResearchKitAll/share/sawIntuitiveResearchKit/share/console/console-PSM1_KIN_SIMULATED.json```
 
@@ -15,3 +16,11 @@ to run all of the above commands at the same time:
 
 5. start grasping trajectory:  
 ```ros2 run ros2_course psm_grasp```
+
+# how it works
+## psm_grasp.py
+- the *grasp_marker* function opens the jaws goes to the position of the marker and closes the jaw
+
+## dummy_marker.py
+- the *is_grabbed* function checks how close the marker is to the TCP, and whether the jaw is closed
+- if its close enought, and the jaw is closed, the marker resets its position to be the same as the TCP
