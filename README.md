@@ -24,3 +24,7 @@ to run all of the above commands at the same time:
 ## dummy_marker.py
 - the *is_grabbed* function checks how close the marker is to the TCP, and whether the jaw is closed
 - if its close enought, and the jaw is closed, the marker resets its position to be the same as the TCP
+
+
+# To see marker in rviz:
+displays --> add --> by topic --> Marker --> add
