@@ -27,4 +27,4 @@ to run all of the above commands at the same time:
 
 
 # To see marker in rviz:
-displays --> add --> by topic --> Marker --> add
+displays --> add --> by topic --> Marker --> ok
